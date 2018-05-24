@@ -1,0 +1,46 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 12rem;
+  background: white;
+  border: black solid 2px;
+  padding: 1.2rem;
+  border-radius: 15%;
+
+  &::after {
+    content: '';
+    border: 15px solid transparent;
+    border-top: 15px solid white;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    top: 100%;
+    left: 6rem;
+  }
+
+  &::before {
+    content: '';
+    border: 17px solid transparent;
+    border-top: 17px solid black;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    top: 100%;
+    left: 5.9rem;
+  }
+
+  .description-tooltip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .letter {
+      font-size: 3rem;
+      color: red;
+      font-family: Verdana;
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+  }
+}
