@@ -6,7 +6,7 @@ import { selectLetter, openTooltip } from '../../store/actions/actions';
 
 const mapDispatchToProps = (dispatch) => ({
   selectLetter: (letter) => dispatch(selectLetter(letter)),
-  openTooltip:(position) => dispatch(openTooltip(position))
+  openTooltip: (position) => dispatch(openTooltip(position))
 });
 
 @connect(null, mapDispatchToProps)
@@ -19,7 +19,6 @@ export default class Letter extends React.Component {
     };
       
     this.onClick = this.onClick.bind(this);
-    this.onMouseLeave = this.onMouseLeave.bind(this);
   }
 
   onClick(e) {
@@ -35,15 +34,10 @@ export default class Letter extends React.Component {
     });
   }
     
-  onMouseLeave(e) {
-    
-  }
-    
   render() {
     return <span
       className={`word ${this.state.selected ? 'selected' : ''}`}
-      onClick={this.onClick}
-      onMouseLeave={this.onMouseLeave}>
+      onClick={this.onClick}>
       {this.props.letter}
     </span>
   }

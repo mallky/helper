@@ -2,6 +2,7 @@ import './DescriptionTooltip.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { closeTooltip } from '../../store/actions/actions';
 
 const mapStateToProps = (state) => ({
   position: state.app.position,
@@ -9,7 +10,11 @@ const mapStateToProps = (state) => ({
   isOpen: state.app.isOpen
 });
 
-@connect(mapStateToProps)
+const mapDispatchToProps = (dispatch) => ({
+  closeTooltip: () => dispatch(closeTooltip())
+});
+
+@connect(mapStateToProps, mapDispatchToProps)
 export default class DescriptionTooltip extends React.Component {
   constructor(props) {
     super(props);
@@ -24,9 +29,12 @@ export default class DescriptionTooltip extends React.Component {
     }
   }
 
+  close() {
+    this.props.closeTooltip();
+  }
+
   render() {
     const { width, height } = this.getTooltipSize();
-    console.log(width);
     const style = {
       top: this.props.position.y - height - 40,
       left: this.props.position.x - width / 2 + 5
@@ -39,6 +47,9 @@ export default class DescriptionTooltip extends React.Component {
       <div className="description-tooltip">
         <div className="letter">{this.props.letter}</div>
         <div>Empty asdasdasdasd</div>
+        <button
+          className="close"
+          onClick={this.close.bind(this)}>Close</button>
       </div>
     </div>);
   }
