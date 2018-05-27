@@ -1,29 +1,21 @@
 import * as types from "../types/types";
 
-export const zoomPlus = () => ({
-  type: types.ZOOM_PLUS
+export const selectLetter = (letter) => ({
+  type: types.ADD_LETTER,
+  letter
 });
 
-export const zoomMinus = () => ({
-  type: types.ZOOM_MINUS
+export const addToYourLetter = (letter) => ({
+  type: types.ADD_LETTER,
+  letter
 });
 
-export const addItem = (item) => ({
-  type: types.ADD_ITEM,
-  item
+export const openTooltip = (position) => ({
+  type: types.OPEN_TOOLTIP,
+  position
 });
 
-export const removeItem = (item) => ({
-  type: types.REMOVE_ITEM,
-  item
-});
-
-
-export const openDialog = () => ({
-  type: types.OPEN_DIALOG
-});
-
-export const closeDialog = () => ({
-  type: types.CLOSE_DIALOG
+export const closeTooltip = () => ({
+  type: types.CLOSE_TOOLTIP
 });
 

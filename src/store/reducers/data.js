@@ -1,28 +1,28 @@
 import * as types from "../types/types";
 
 const initialState = {
-  height: 331,
-  width: 237,
-  items: []
+  letter: '',
+  yourLetters: []
 };
 
-const dataRIT = (state = initialState, action) => {
+const appData = (state = initialState, action) => {
   switch (action.type) {
 
-    case types.ADD_ITEM:
-      const items = [...state.items];
-      if (items.indexOf(action.item) === -1) {
-        items.push(action.item);
-      }
-
+    case types.ADD_LETTER:
       return {
         ...state,
-        items
+        letter: action.letter
       };
-    
+
+    case types.ADD_TO_LETTERS:
+      return {
+        ...state,
+        yourLetters: state.yourLetters.push(action.letter)
+      };
+
     default:
       return state;
   }
 };
 
-export default dataRIT;
+export default appData;

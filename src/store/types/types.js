@@ -1,8 +1,5 @@
-export const ZOOM_PLUS = 'ZOOM_PLUS';
-export const ZOOM_MINUS = 'ZOOM_MINUS';
-export const ADD_ITEM = 'ADD_ITEM';
-export const REMOVE_ITEM = 'REMOVE_ITEM';
+export const ADD_LETTER = 'ADD_LETTER';
+export const ADD_TO_LETTERS = 'ADD_TO_LETTERS';
 
-
-export const OPEN_DIALOG = 'OPEN_DIALOG';
-export const CLOSE_DIALOG = 'CLOSE_DIALOG';
+export const OPEN_TOOLTIP = 'OPEN_TOOLTIP';
+export const CLOSE_TOOLTIP = 'CLOSE_TOOLTIP';

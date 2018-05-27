@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import data from './data';
+import appData from './data';
 import app from './app';
 
 const appReducers = combineReducers({
-  data,
+  appData,
   app
 });
 

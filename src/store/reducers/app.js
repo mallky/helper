@@ -1,19 +1,24 @@
 import * as types from "../types/types";
 
 const initialState = {
-  isOpen: false
+  isOpen: false,
+  position: {
+    x: 0,
+    y: 0
+  }
 };
 
-const appRIT = (state = initialState, action) => {
+const app = (state = initialState, action) => {
   switch (action.type) {
 
-    case types.OPEN_DIALOG:
+    case types.OPEN_TOOLTIP:
       return {
         ...state,
+        position: action.position,
         isOpen: true
       };
 
-    case types.CLOSE_DIALOG:
+    case types.CLOSE_TOOLTIP:
       return {
         ...state,
         isOpen: false
@@ -24,4 +29,4 @@ const appRIT = (state = initialState, action) => {
   }
 };
 
-export default appRIT;
+export default app;
