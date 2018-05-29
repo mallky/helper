@@ -2,7 +2,8 @@ import * as types from "../types/types";
 
 const initialState = {
   letter: '',
-  yourLetters: []
+  yourLetters: [],
+  books: null
 };
 
 const appData = (state = initialState, action) => {
@@ -18,6 +19,12 @@ const appData = (state = initialState, action) => {
       return {
         ...state,
         yourLetters: state.yourLetters.push(action.letter)
+      };
+    
+    case types.SET_BOOKS:
+      return {
+        ...state,
+        books: action.books
       };
 
     default:

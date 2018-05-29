@@ -10,6 +10,11 @@ export const addToYourLetter = (letter) => ({
   letter
 });
 
+export const setBooks = (books) => ({
+  type: types.SET_BOOKS,
+  books
+});
+
 export const openTooltip = (position) => ({
   type: types.OPEN_TOOLTIP,
   position
