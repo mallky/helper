@@ -1,17 +1,26 @@
 import './Book.scss';
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import DescriptionTooltip from '../description-tooltip/DescriptionTooltip.jsx';
 import Letter from '../letter/Letter.jsx';
 
+const mapStateToProps = (state) => ({
+  books: state.appData.books
+});
+
+@connect(mapStateToProps)
 export default class Book extends React.Component {
   _renderBooks() {
-    return this.props.books ? this.props.books.map((book, i) => {
+    return this.props.books ? this.props.books.books.map((book, i) => {
       const header = book.name;
       const text = book.text.split('').map((letter, i) => {
+        const key = `word-${header}-${letter}-${i}`;
+
         return <Letter
-          key={`word-${header}-${i}`}
+          key={key}
+          guid={key}
           letter={letter} />;
       });
 

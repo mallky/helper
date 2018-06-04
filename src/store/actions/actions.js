@@ -1,8 +1,8 @@
 import * as types from "../types/types";
 
-export const selectLetter = (letter) => ({
+export const selectLetter = (letterData) => ({
   type: types.ADD_LETTER,
-  letter
+  letterData
 });
 
 export const addToYourLetter = (letter) => ({

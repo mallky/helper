@@ -6,11 +6,11 @@ import { selectLetter, openTooltip } from '../../store/actions/actions';
 
 const mapStateToProps = (state) => ({
   isOpen: state.app.isOpen,
-  currentLetter: state.appData.letter
+  letterData: state.appData.letterData
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  selectLetter: (letter) => dispatch(selectLetter(letter)),
+  selectLetter: (letterData) => dispatch(selectLetter(letterData)),
   openTooltip: (position) => dispatch(openTooltip(position))
 });
 
@@ -19,9 +19,6 @@ export default class Letter extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      selected: false
-    };
     this.onClick = this.onClick.bind(this);
   }
 
@@ -30,16 +27,19 @@ export default class Letter extends React.Component {
       x: e.clientX,
       y: e.clientY
     };
+    const letterData = {
+      id: this.props.guid,
+      letter: this.props.letter
+    };
 
-    this.props.selectLetter(this.props.letter);
+    this.props.selectLetter(letterData);
     this.props.openTooltip(position);
-    this.setState({
-      selected: true
-    });
   }
 
   isSelected() {
-    return this.props.isOpen && this.state.selected;
+    const { letter, id } = this.props.letterData;
+
+    return this.props.isOpen && this.props.letter === letter && this.props.guid === id;
   }
 
   render() {
@@ -52,5 +52,6 @@ export default class Letter extends React.Component {
 }
 
 Letter.propTypes = {
-  letter: PropTypes.string.isRequired
+  letter: PropTypes.string.isRequired,
+  guid: PropTypes.string.isRequired
 };

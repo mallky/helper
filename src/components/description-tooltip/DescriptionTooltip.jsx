@@ -6,7 +6,7 @@ import { closeTooltip } from '../../store/actions/actions';
 
 const mapStateToProps = (state) => ({
   position: state.app.position,
-  letter: state.appData.letter,
+  letter: state.appData.letterData.letter,
   isOpen: state.app.isOpen
 });
 
@@ -39,14 +39,15 @@ export default class DescriptionTooltip extends React.Component {
       top: this.props.position.y - height - 40,
       left: this.props.position.x - width / 2 + 5
     };
+    const letter = this.props.letter === ' ' ? 'space' : this.props.letter;
 
     return (<div
       className={`overlay ${this.props.isOpen ? '' : 'd-none'}`}
       style={style}
       ref={(tooltip) => this.tooltip = tooltip}>
       <div className="description-tooltip">
-        <div className="letter">{this.props.letter}</div>
-        <div>Empty asdasdasdasd</div>
+        <div className="letter">{letter}</div>
+        <div>Free for buy</div>
         <button
           className="close"
           onClick={this.close.bind(this)}>Close</button>

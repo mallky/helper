@@ -1,7 +1,10 @@
 import * as types from "../types/types";
 
 const initialState = {
-  letter: '',
+  letterData: {
+    id: null,
+    letter: ''
+  },
   yourLetters: [],
   books: null
 };
@@ -12,7 +15,7 @@ const appData = (state = initialState, action) => {
     case types.ADD_LETTER:
       return {
         ...state,
-        letter: action.letter
+        letterData: action.letterData
       };
 
     case types.ADD_TO_LETTERS:

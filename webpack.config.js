@@ -16,6 +16,11 @@ module.exports = {
   devServer: {
     port: 9000
   },
+  resolve: {
+    alias: {
+      utils: path.resolve(__dirname, 'utils/utils')
+    }
+  },
   module: {
     rules: [
       {
